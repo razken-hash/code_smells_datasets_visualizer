@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:code_smells_datasets_visualizer/models/code_smell_item.dart';
 import 'package:code_smells_datasets_visualizer/repository/dataset_repository.dart';
+import 'package:code_smells_datasets_visualizer/screens/dataset_screen.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -52,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Scaffold(),
+                        builder: (context) => const DatasetScreen(),
                       ),
                     );
                   });
