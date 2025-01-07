@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:code_smells_datasets_visualizer/models/code_smell_item.dart';
+import 'package:code_smells_datasets_visualizer/repository/dataset_repository.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,7 +45,17 @@ class HomeScreen extends StatelessWidget {
                 } else {
                   final content = await file.readAsString();
                   final dataset = jsonDecode(content);
-                  print(dataset[0]);
+                  for (Map<String, dynamic> item in dataset) {
+                    DatasetRepository.items.add(CodeSmellItem.fromMap(item));
+                  }
+                  Future.delayed(const Duration(seconds: 2)).then((_) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Scaffold(),
+                      ),
+                    );
+                  });
                 }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
