@@ -1,3 +1,4 @@
+import 'package:code_smells_datasets_visualizer/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -15,7 +16,9 @@ void main() async {
     },
   );
   runApp(
-    const CodeSmellsDatasetsVisualizerApp(),
+    const MaterialApp(
+      home: CodeSmellsDatasetsVisualizerApp(),
+    ),
   );
 }
 
@@ -24,6 +27,6 @@ class CodeSmellsDatasetsVisualizerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const HomeScreen();
   }
 }
