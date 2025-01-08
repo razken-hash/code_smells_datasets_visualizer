@@ -1,8 +1,7 @@
 import 'package:code_smells_datasets_visualizer/repository/dataset_repository.dart';
+import 'package:code_smells_datasets_visualizer/screens/code_smell_button.dart';
 import 'package:code_smells_datasets_visualizer/screens/code_smell_item_card.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_highlight/flutter_highlight.dart';
 
 class DatasetScreen extends StatefulWidget {
   const DatasetScreen({super.key});
@@ -12,14 +11,65 @@ class DatasetScreen extends StatefulWidget {
 }
 
 class _DatasetScreenState extends State<DatasetScreen> {
+  List<String> selectedCodeSmells = [];
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100.0),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              children: [
+                CodeSmellButton(
+                  codeSmellName: "ALL",
+                  codeSmellColor: const Color(0xff002b36),
+                  isEnabled: selectedCodeSmells ==
+                      DatasetRepository.codeSmellsColors.keys.toList(),
+                  onClick: () {
+                    setState(() {
+                      selectedCodeSmells =
+                          DatasetRepository.codeSmellsColors.keys.toList();
+                    });
+                  },
+                ),
+                ...List.generate(
+                  DatasetRepository.codeSmellsColors.keys.length,
+                  (index) => CodeSmellButton(
+                    codeSmellName:
+                        DatasetRepository.codeSmellsColors.keys.toList()[index],
+                    codeSmellColor: DatasetRepository.codeSmellsColors[
+                        DatasetRepository.codeSmellsColors.keys
+                            .toList()[index]]!,
+                    isEnabled: selectedCodeSmells.contains(DatasetRepository
+                        .codeSmellsColors.keys
+                        .toList()[index]),
+                    onClick: () {
+                      setState(() {
+                        if (!selectedCodeSmells.contains(DatasetRepository
+                            .codeSmellsColors.keys
+                            .toList()[index])) {
+                          selectedCodeSmells.add(DatasetRepository
+                              .codeSmellsColors.keys
+                              .toList()[index]);
+                        } else {
+                          selectedCodeSmells.remove(DatasetRepository
+                              .codeSmellsColors.keys
+                              .toList()[index]);
+                        }
+                        
+                      });
+                      print(selectedCodeSmells);
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

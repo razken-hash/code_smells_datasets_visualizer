@@ -24,8 +24,7 @@ class CodeSmellItemCard extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * .8,
-                height: MediaQuery.of(context).size.height * .8,
-                margin: const EdgeInsets.all(20),
+                height: MediaQuery.of(context).size.height * .7,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   border: Border.all(
@@ -95,7 +94,7 @@ class CodeSmellItemCard extends StatelessWidget {
                 codeSmellItem.codeSmells.length,
                 (index) => Positioned(
                   right: 40.0 + 60 * index,
-                  top: 20,
+                  top: 0,
                   child: Container(
                     height: 90,
                     width: 40,
@@ -125,10 +124,11 @@ class CodeSmellItemCard extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 10),
         Center(
           child: Text("${codeSmellItem.id + 1}"),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 10),
         Container(
           width: MediaQuery.of(context).size.width * .8,
           padding: const EdgeInsets.all(20),
