@@ -12,11 +12,45 @@ class DatasetScreen extends StatefulWidget {
 }
 
 class _DatasetScreenState extends State<DatasetScreen> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CodeSmellItemCard(
-        codeSmellItem: DatasetRepository.items[3],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    index = (index - 1) % DatasetRepository.items.length;
+                  });
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 50,
+                ),
+              ),
+              CodeSmellItemCard(
+                codeSmellItem: DatasetRepository.items[index],
+              ),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    index = (index + 1) % DatasetRepository.items.length;
+                  });
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 50,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

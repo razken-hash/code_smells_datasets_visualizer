@@ -29,10 +29,11 @@ class CodeSmellItem {
 
   factory CodeSmellItem.fromMap(Map<String, dynamic> map) {
     return CodeSmellItem(
-        code: map['code'] as String,
-        codeSmells: (map['code_smells'] as List<dynamic>)
-            .map((codeSmell) => codeSmell.toString())
-            .toList());
+      code: map['code'] as String,
+      codeSmells: (map['code_smells'] as List<dynamic>)
+          .map((codeSmell) => codeSmell.toString())
+          .toList(),
+    );
   }
 
   String toJson() => json.encode(toMap());
