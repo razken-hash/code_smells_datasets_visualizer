@@ -125,6 +125,10 @@ class CodeSmellItemCard extends StatelessWidget {
             ],
           ),
         ),
+        Center(
+          child: Text("${codeSmellItem.id + 1}"),
+        ),
+        const SizedBox(height: 20),
         Container(
           width: MediaQuery.of(context).size.width * .8,
           padding: const EdgeInsets.all(20),

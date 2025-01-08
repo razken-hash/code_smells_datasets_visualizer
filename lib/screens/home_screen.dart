@@ -45,9 +45,16 @@ class HomeScreen extends StatelessWidget {
                   );
                 } else {
                   final content = await file.readAsString();
-                  final dataset = jsonDecode(content);
+                  final List<dynamic> dataset = jsonDecode(content);
                   for (Map<String, dynamic> item in dataset) {
-                    DatasetRepository.items.add(CodeSmellItem.fromMap(item));
+                    DatasetRepository.items.add(
+                      CodeSmellItem.fromMap(
+                        item
+                          ..addAll(
+                            {"id": dataset.indexOf(item)},
+                          ),
+                      ),
+                    );
                   }
                   Future.delayed(const Duration(seconds: 2)).then((_) {
                     Navigator.push(
