@@ -1,5 +1,7 @@
+import 'package:code_smells_datasets_visualizer/controllers/code_smells_filter_controller.dart';
 import 'package:code_smells_datasets_visualizer/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() async {
@@ -16,9 +18,7 @@ void main() async {
     },
   );
   runApp(
-    const MaterialApp(
-      home: CodeSmellsDatasetsVisualizerApp(),
-    ),
+    const CodeSmellsDatasetsVisualizerApp(),
   );
 }
 
@@ -27,6 +27,11 @@ class CodeSmellsDatasetsVisualizerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return ChangeNotifierProvider(
+      create: (context) => CodeSmellsFilterController(),
+      child: const MaterialApp(
+        home: HomeScreen(),
+      ),
+    );
   }
 }

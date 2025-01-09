@@ -24,7 +24,7 @@ class CodeSmellItemCard extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * .8,
-                height: MediaQuery.of(context).size.height * .7,
+                height: MediaQuery.of(context).size.height * .6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   border: Border.all(

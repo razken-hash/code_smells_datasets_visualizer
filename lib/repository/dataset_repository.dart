@@ -12,9 +12,11 @@ class DatasetRepository {
     "Message Chain": Colors.teal,
     "Middle Man": Colors.purple,
     "Insider Trading": Colors.pink,
-    "Alternative Classes": Colors.grey,
+    "Alternative Classes": Colors.limeAccent,
     "God Class": Colors.red,
     "Data Class": Colors.green,
     "Refused Bequest": Colors.blue,
   };
+
+  static List<String> allCodeSmells = codeSmellsColors.keys.toList();
 }
