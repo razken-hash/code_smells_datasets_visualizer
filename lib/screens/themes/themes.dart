@@ -23,26 +23,26 @@ ThemeData lightTheme = ThemeData.light(
 ).copyWith(
   primaryColor: CSDVColors.primaryColor,
   dividerColor: const Color(0xFFE9F0FD),
+  scaffoldBackgroundColor: CSDVColors.greyishColor,
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: CSDVColors.primaryColor,
     selectionColor: CSDVColors.primaryColor.withOpacity(.3),
     selectionHandleColor: CSDVColors.primaryColor,
   ),
-  scaffoldBackgroundColor: CSDVColors.tertiaryColor,
   inputDecorationTheme: InputDecorationTheme(
     contentPadding:
         const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
     enabledBorder: OutlineInputBorder(
-      borderSide: const BorderSide(
+      borderSide: BorderSide(
         width: 1.0,
-        color: Colors.grey,
+        color: CSDVColors.greyColor,
       ),
       borderRadius: BorderRadius.circular(5),
     ),
     disabledBorder: OutlineInputBorder(
-      borderSide: const BorderSide(
+      borderSide: BorderSide(
         width: 1.0,
-        color: Colors.grey,
+        color: CSDVColors.greyColor,
       ),
       borderRadius: BorderRadius.circular(5),
     ),
@@ -54,9 +54,9 @@ ThemeData lightTheme = ThemeData.light(
       borderRadius: BorderRadius.circular(5),
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: const BorderSide(
+      borderSide: BorderSide(
         width: 1.0,
-        color: Colors.grey,
+        color: CSDVColors.greyColor,
       ),
       borderRadius: BorderRadius.circular(5),
     ),

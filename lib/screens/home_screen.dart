@@ -21,7 +21,6 @@ class HomeScreen extends StatelessWidget {
     return Consumer<CodeSmellsFilterController>(
         builder: (context, filterController, child) {
       return Scaffold(
-        backgroundColor: CSDVColors.greyishColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

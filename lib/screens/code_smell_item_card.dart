@@ -128,32 +128,6 @@ class CodeSmellItemCard extends StatelessWidget {
         Center(
           child: Text("${codeSmellItem.id + 1}"),
         ),
-        const SizedBox(height: 10),
-        Container(
-          width: MediaQuery.of(context).size.width * .8,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: Colors.blue,
-              width: 2.0,
-            ),
-            color: const Color(0xff002b36),
-          ),
-          child: Row(
-            children: List.generate(
-              codeSmellItem.codeSmells.length,
-              (index) => Text(
-                codeSmellItem.codeSmells[index] +
-                    ((index + 1 < codeSmellItem.codeSmells.length) ? ", " : ""),
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        )
       ],
     );
   }
